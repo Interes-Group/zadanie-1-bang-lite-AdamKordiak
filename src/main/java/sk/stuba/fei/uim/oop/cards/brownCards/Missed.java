@@ -1,12 +1,13 @@
 package sk.stuba.fei.uim.oop.cards.brownCards;
 
 import sk.stuba.fei.uim.oop.cards.IdentifiedCard;
+import sk.stuba.fei.uim.oop.game.PlayDeck;
 import sk.stuba.fei.uim.oop.game.Player;
+import sk.stuba.fei.uim.oop.game.TextColours;
+
+import java.util.ArrayList;
 
 public class Missed extends IdentifiedCard {
-
-    private Player[] players;
-    private int playerNumber;
 
     public Missed() {
 
@@ -16,7 +17,10 @@ public class Missed extends IdentifiedCard {
 
     }
 
-    public void useCard(){
+    //Usage of Missed card works automatically.
+    public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
+        System.out.print(TextColours.ANSI_RED + "You can't use this card.\n" + TextColours.ANSI_RESET);
+        return false;
     }
 
 

@@ -16,7 +16,8 @@ public class PlayDeck extends IdentifiedCard {
     public PlayDeck() {
         this.cardsInDeck = new ArrayList<>();
         this.deckSize = 71;
-        this.countsCards = new int[] {2,1,3,30, 15, 8, 6, 4, 2};
+        this.countsCards = new int[] {30,60,3,30, 15, 8, 6, 4, 2};
+        //                 original  {2,1,3,30, 15, 8, 6 , 4, 2};
 
     }
 public void fillDeck() {
@@ -24,7 +25,7 @@ public void fillDeck() {
         for (int j = 0; j < countsCards[i];j++ ) {
             switch (i) {
                 case 0: cardsInDeck.add(new Barrel()); break;
-                case 1: cardsInDeck.add(new Dynamit());break;
+                case 1: cardsInDeck.add(new Dynamite());break;
                 case 2: cardsInDeck.add(new Prison()); break;
                 case 3: cardsInDeck.add(new Bang()); break;
                 case 4: cardsInDeck.add(new Missed()); break;

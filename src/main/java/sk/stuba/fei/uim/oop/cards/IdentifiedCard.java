@@ -19,10 +19,8 @@ public abstract class IdentifiedCard {
     public boolean getCardColour() { return cardColour; }
 
 
-
-
-    public String play(){return null;}
-    public void useCard(PlayDeck playDeck, ArrayList<Player> players, int i ){}
+    public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
+        return true;}
 
 
 

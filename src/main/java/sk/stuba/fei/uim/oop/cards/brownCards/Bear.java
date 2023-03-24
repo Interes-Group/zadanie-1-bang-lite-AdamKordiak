@@ -9,9 +9,6 @@ import java.util.ArrayList;
 
 public class Bear extends IdentifiedCard {
 
-    private Player[] players;
-    private int playerNumber;
-
     public Bear() {
 
         super.cardName = "Bear";
@@ -21,11 +18,11 @@ public class Bear extends IdentifiedCard {
 
     }
 
-    public void useCard(PlayDeck playDeck, ArrayList<Player> players, int i ){
-        players.get(i).plusLive();
-        System.out.print(TextColours.ANSI_CYAN + "Player "+ TextColours.ANSI_RESET + players.get(i).getName()+ TextColours.ANSI_CYAN+" drink a ");
-        System.out.print(TextColours.ANSI_YELLOW+"Bear"+TextColours.ANSI_CYAN +". He have now "+ TextColours.ANSI_RED + players.get(i).getLivesNumber()+ TextColours.ANSI_CYAN+" lives." + TextColours.ANSI_RESET);
-
+    public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
+        players.get(actualPlayer).plusLive();
+        System.out.print(TextColours.ANSI_CYAN + "Player "+ TextColours.ANSI_RESET + players.get(actualPlayer).getName()+ TextColours.ANSI_CYAN+" drink a ");
+        System.out.print(TextColours.ANSI_YELLOW+"Bear"+TextColours.ANSI_CYAN +". He have now "+ TextColours.ANSI_RED + players.get(actualPlayer).getLivesNumber()+ TextColours.ANSI_CYAN+" lives.\n" + TextColours.ANSI_RESET);
+        return true;
     }
 
 
