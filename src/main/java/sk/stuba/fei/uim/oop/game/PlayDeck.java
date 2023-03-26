@@ -14,7 +14,6 @@ public class PlayDeck extends IdentifiedCard {
     public PlayDeck() {
         this.cardsInDeck = new ArrayList<>();
         this.countsCards = new int[] {2,1,3,30,15, 8, 6, 4, 2};
-        //                 original  {2,1,3,30, 15, 8, 6, 4, 2};
 
     }
 public void fillDeck() {
@@ -37,7 +36,6 @@ public void fillDeck() {
     Collections.shuffle(cardsInDeck);
 
 }
-    public int getCardsCount() { return cardsInDeck.size(); }
 
     public IdentifiedCard getCard(int i) { return cardsInDeck.get(i); }
 

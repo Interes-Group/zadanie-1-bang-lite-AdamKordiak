@@ -21,6 +21,7 @@ public class Prison extends IdentifiedCard {
     public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer, int choosedCard ) {
         int choosedPlayer;
         Random random = new Random();
+        int playersInPrison = 0;
 
         for(int i = 0;i < players.get(actualPlayer).getCardsPlayerDeckCount();i++) {
 
@@ -38,6 +39,22 @@ public class Prison extends IdentifiedCard {
                     return false;
                 }
             }
+        }
+
+        for(int i = 0;i <players.size(); i++) {
+            for (int j = 0; j < players.get(i).getCardsPlayerDeckCount(); j++) {
+                if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 2) {
+                    playersInPrison++;
+                    break;
+
+                }
+            }
+        }
+        if(playersInPrison == players.size()-1 ){
+            System.out.print(TextColours.RED + "You can't use this card.\n" + TextColours.RESET);
+            System.out.print(TextColours.RED + "All players are in Prison right now.\n" + TextColours.RESET);
+            return false;
+
         }
         do {
             players.get(actualPlayer).printLine(players.get(actualPlayer));
@@ -57,7 +74,7 @@ public class Prison extends IdentifiedCard {
 
             choosedPlayer = ZKlavesnice.readInt(TextColours.CYAN + "Choose player from (1," + players.size() + ")." + TextColours.RESET);
 
-        }while(!players.get(actualPlayer).checkInputRange(1, players.size(), choosedPlayer,actualPlayer,false));
+        }while(!checkInputRange(1, players.size(), choosedPlayer,actualPlayer,players));
 
 
         players.get(actualPlayer).addBlueCardInPlayerDeck2(players.get(actualPlayer),players.get(choosedPlayer-1),players.get(actualPlayer).getCardInHand(choosedCard-1));
@@ -65,6 +82,20 @@ public class Prison extends IdentifiedCard {
 
         return false;
 
+    }
+    public boolean checkInputRange ( int rangeStart, int rangeEnd, int choosedPlayer, int actualPlayer, ArrayList<Player> players){
+
+        if (choosedPlayer >= rangeStart && choosedPlayer <= rangeEnd && actualPlayer != choosedPlayer-1) {
+            for (int i = 0; i < players.get(choosedPlayer - 1).getCardsPlayerDeckCount(); i++) {
+                if (players.get(choosedPlayer - 1).getCardInPlayerDeck(i).getCardCode() == 2) {
+                    System.out.println(TextColours.RED + "Player " + TextColours.RESET + players.get(choosedPlayer - 1).getName() + TextColours.RED + " is actually in Prison.");
+                    return false;
+                }
+            }
+            return true;
+        }
+        System.out.println(TextColours.RED + "             Wrong input" + TextColours.RESET);
+        return false;
     }
 
 
