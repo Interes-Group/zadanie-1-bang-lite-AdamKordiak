@@ -29,10 +29,10 @@ public class Game {
 
     }
     private void startGame() {
-        Random random = new Random();
 
         playDeck = new PlayDeck();
         playDeck.fillDeck();
+
         for (Player player : players) {
             for (int j = 0; j < player.getLivesNumber(); j++) {
                 player.addCardInHand(playDeck);
@@ -48,6 +48,9 @@ public class Game {
 
             for (int i = 0; i < players.size();i++) {
                 boolean prisonStatement = false;
+
+
+
 
                 for(int j = 0;j < players.get(i).getCardsPlayerDeckCount();j++) {
 
@@ -83,6 +86,10 @@ public class Game {
                     break;
                 }
 
+                if(playDeck.getCardsInDeckSize() == 0){
+                    playDeck.fillEmptyDeck(playDeck);
+                }
+
                 players.get(i).addCardInHand(playDeck);
                 players.get(i).addCardInHand(playDeck);
 
@@ -109,12 +116,10 @@ public class Game {
                     if(players.get(i).getCardsInHandCount() == 0){
                         break;
                     }
-                    //System.out.println(playDeck.getCardsCount());
 
                     if(players.get(i).getCardInHand(choosedCard - 1).useCard(playDeck,players, i, choosedCard)) {
                         players.get(i).removeCardInHand(playDeck, players.get(i).getCardInHand(choosedCard - 1));
                     }
-                   // System.out.println(playDeck.getCardsCount());
 
 
                     for(int k = 0; k < 4;k++){ //This "for" is for most acurate info about dead players
