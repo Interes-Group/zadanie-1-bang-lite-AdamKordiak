@@ -50,10 +50,13 @@ public class Bang extends IdentifiedCard {
         for(int findBarrelCard = 0; findBarrelCard < players.get(choosedPlayer-1).getCardsPlayerDeckCount() ; findBarrelCard++) {
             if(players.get(choosedPlayer-1).getCardInPlayerDeck(findBarrelCard).getCardCode() == 0){
                 int x = random.nextInt(4);
-                if(x == 0) {
+
+                if(x == 1) {
                 haveBarrelCard = true;
                 break;
                 }
+                System.out.println(TextColours.CYAN + "Player's " + TextColours.RESET + players.get(choosedPlayer - 1).getName() + TextColours.BLUE + " Barrel " + TextColours.CYAN + "don't work." + TextColours.RESET);
+
             }
         }
 
@@ -69,7 +72,7 @@ public class Bang extends IdentifiedCard {
         }
 
         if(haveBarrelCard){
-            System.out.print(TextColours.CYAN + "Player " + TextColours.RESET + players.get(choosedPlayer - 1).getName() + TextColours.CYAN + " automatically used " + TextColours.BLUE + "Barrel" + TextColours.CYAN + " card. He still have "+ TextColours.RED + players.get(choosedPlayer - 1).getLivesNumber()+  TextColours.CYAN + " lives.\n" + TextColours.RESET);
+            System.out.print(TextColours.CYAN + "Player " + TextColours.RESET + players.get(choosedPlayer - 1).getName() + TextColours.CYAN + " automatically used " + TextColours.BLUE + "Barrel" + TextColours.CYAN + ". He still have "+ TextColours.RED + players.get(choosedPlayer - 1).getLivesNumber()+  TextColours.CYAN + " lives.\n" + TextColours.RESET);
             return true;
 
         }else if(haveMissedCard){
