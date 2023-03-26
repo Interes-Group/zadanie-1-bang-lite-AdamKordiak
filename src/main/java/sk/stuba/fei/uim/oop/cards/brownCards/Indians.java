@@ -23,14 +23,15 @@ public class Indians extends IdentifiedCard {
 
         for (int checkOtherPlayers = 0;checkOtherPlayers < players.size();checkOtherPlayers++){
             boolean statement = true;
+
             if(players.get(actualPlayer) == players.get(checkOtherPlayers)){
                 continue;
             }else {
                 for(int findBangCard = 0;findBangCard < players.get(checkOtherPlayers).getCardsInHandCount();findBangCard++) {
 
                     if(players.get(checkOtherPlayers).getCardInHand(findBangCard).getCardCode() == 3){
-                        System.out.println(TextColours.ANSI_CYAN + "Player " + TextColours.ANSI_RESET + players.get(checkOtherPlayers).getName() + TextColours.ANSI_CYAN + " automatically used " + TextColours.ANSI_YELLOW + "Bang" + TextColours.ANSI_CYAN + " card. He still have "+ TextColours.ANSI_RED + players.get(checkOtherPlayers).getLivesNumber()+  TextColours.ANSI_CYAN + " lives." + TextColours.ANSI_RESET);
-                        players.get(checkOtherPlayers).removeCardInHand(playDeck, players.get(checkOtherPlayers).getCardInHand( findBangCard));
+                        System.out.println(TextColours.CYAN + "Player " + TextColours.RESET + players.get(checkOtherPlayers).getName() + TextColours.CYAN + " automatically used " + TextColours.YELLOW + "Bang" + TextColours.CYAN + " card. He still have "+ TextColours.RED + players.get(checkOtherPlayers).getLivesNumber()+  TextColours.CYAN + " lives." + TextColours.RESET);
+                        players.get(checkOtherPlayers).removeCardInHand(playDeck, players.get(checkOtherPlayers).getCardInHand(findBangCard));
                         statement = false;
                         break;
                     }
@@ -39,10 +40,10 @@ public class Indians extends IdentifiedCard {
                 if(statement){
                     players.get(checkOtherPlayers).minusLive();
                     if(players.get(checkOtherPlayers).getLivesNumber() == 0){
-                        System.out.print(TextColours.ANSI_RED + "                    Player " + players.get(checkOtherPlayers).getName() + " is dead. \n" + TextColours.ANSI_RESET);
+                        System.out.print(TextColours.RED + "                    Player " + players.get(checkOtherPlayers).getName() + " is dead. \n" + TextColours.RESET);
 
                     }else{
-                        System.out.println(TextColours.ANSI_CYAN + "Player " + TextColours.ANSI_RESET + players.get(checkOtherPlayers).getName() + TextColours.ANSI_CYAN + " have now " + TextColours.ANSI_RED + players.get(checkOtherPlayers).getLivesNumber() + TextColours.ANSI_CYAN + " lives." + TextColours.ANSI_RESET);
+                        System.out.println(TextColours.CYAN + "Player " + TextColours.RESET + players.get(checkOtherPlayers).getName() + TextColours.CYAN + " have now " + TextColours.RED + players.get(checkOtherPlayers).getLivesNumber() + TextColours.CYAN + " lives." + TextColours.RESET);
 
                     }
                 }

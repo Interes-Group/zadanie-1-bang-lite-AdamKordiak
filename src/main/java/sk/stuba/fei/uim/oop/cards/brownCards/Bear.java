@@ -20,8 +20,8 @@ public class Bear extends IdentifiedCard {
 
     public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
         players.get(actualPlayer).plusLive();
-        System.out.print(TextColours.ANSI_CYAN + "Player "+ TextColours.ANSI_RESET + players.get(actualPlayer).getName()+ TextColours.ANSI_CYAN+" drink a ");
-        System.out.print(TextColours.ANSI_YELLOW+"Bear"+TextColours.ANSI_CYAN +". He have now "+ TextColours.ANSI_RED + players.get(actualPlayer).getLivesNumber()+ TextColours.ANSI_CYAN+" lives.\n" + TextColours.ANSI_RESET);
+        System.out.print(TextColours.CYAN + "Player "+ TextColours.RESET + players.get(actualPlayer).getName()+ TextColours.CYAN + " drink a ");
+        System.out.print(TextColours.YELLOW+"Bear"+TextColours.CYAN +". He have now "+ TextColours.RED + players.get(actualPlayer).getLivesNumber()+ TextColours.CYAN + " lives.\n" + TextColours.RESET);
         return true;
     }
 

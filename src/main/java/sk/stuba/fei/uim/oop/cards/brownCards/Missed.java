@@ -19,7 +19,7 @@ public class Missed extends IdentifiedCard {
 
     //Usage of Missed card works automatically.
     public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
-        System.out.print(TextColours.ANSI_RED + "You can't use this card.\n" + TextColours.ANSI_RESET);
+        System.out.print(TextColours.RED + "You can't use this card.\n" + TextColours.RESET);
         return false;
     }
 

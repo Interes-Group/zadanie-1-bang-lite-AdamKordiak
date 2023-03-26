@@ -17,7 +17,7 @@ public class Stagecoach extends IdentifiedCard {
 
     }
     public boolean useCard(PlayDeck playDeck, ArrayList<Player> players, int actualPlayer,int choosedCard ) {
-        System.out.print(TextColours.ANSI_CYAN + "Player "+TextColours.ANSI_RESET + players.get(actualPlayer).getName() + TextColours.ANSI_CYAN +" used "+ TextColours.ANSI_YELLOW +"Stagecoach" +TextColours.ANSI_CYAN+ " card.\n" + TextColours.ANSI_RESET);
+        System.out.print(TextColours.CYAN + "Player "+TextColours.RESET + players.get(actualPlayer).getName() + TextColours.CYAN +" used "+ TextColours.YELLOW +"Stagecoach" +TextColours.CYAN+ " card.\n" + TextColours.RESET);
 
         players.get(actualPlayer).addCardInHand(playDeck);
         players.get(actualPlayer).addCardInHand(playDeck);

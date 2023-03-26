@@ -8,16 +8,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class PlayDeck extends IdentifiedCard {
-    private ArrayList<IdentifiedCard> cardsInDeck;
-    private int deckSize;
-    private int[] countsCards;
-    private Player player;
+    private final ArrayList<IdentifiedCard> cardsInDeck;
+    private final int[] countsCards;
 
     public PlayDeck() {
         this.cardsInDeck = new ArrayList<>();
-        this.deckSize = 71;
-        this.countsCards = new int[] {2,1,30,30, 15, 8, 6, 4, 2};
-        //                 original  {2,1,3,30, 15, 8, 6 , 4, 2};
+        this.countsCards = new int[] {2,1,3,30, 15, 8, 6, 4, 2};
+        //                 original  {2,1,3,30, 15, 8, 6, 4, 2};
 
     }
 public void fillDeck() {

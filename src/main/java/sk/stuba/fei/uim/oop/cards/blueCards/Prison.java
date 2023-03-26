@@ -32,10 +32,10 @@ public class Prison extends IdentifiedCard {
                 players.get(actualPlayer).removeBlueCardInPlayerDeck(playDeck,players.get(actualPlayer).getCardInPlayerDeck(i));
 
                 if (x == 1) {
-                    System.out.println(TextColours.ANSI_RED +"Player "+TextColours.ANSI_RESET + players.get(actualPlayer).getName() + TextColours.ANSI_RED + " stay in Prison." + TextColours.ANSI_RESET);
+                    System.out.println(TextColours.RED +"Player "+TextColours.RESET + players.get(actualPlayer).getName() + TextColours.RED + " stay in Prison." + TextColours.RESET);
                     return true;
                 }else{
-                    System.out.println(TextColours.ANSI_RED +"Player "+TextColours.ANSI_RESET + players.get(actualPlayer).getName() + TextColours.ANSI_RED + " run from Prison." + TextColours.ANSI_RESET);
+                    System.out.println(TextColours.RED +"Player "+TextColours.RESET + players.get(actualPlayer).getName() + TextColours.RED + " run from Prison." + TextColours.RESET);
 
                     return false;
                 }
@@ -43,11 +43,12 @@ public class Prison extends IdentifiedCard {
         }
         do {
             players.get(actualPlayer).printLine(players.get(actualPlayer));
-            System.out.println(TextColours.ANSI_RED + "Whitch Player do you want put in Prison ?" + TextColours.ANSI_RESET);
-            System.out.print("  ");
+            System.out.print(TextColours.RED + "Whitch Player do you want put in Prison ?\n   " + TextColours.RESET);
+
+
             for(int j = 0;j < players.size();j++){
                 if(players.get(actualPlayer).equals(players.get(j))) {
-                    System.out.print(TextColours.ANSI_WHITE +" " + players.get(j).getName()+ TextColours.ANSI_RESET);
+                    System.out.print(TextColours.WHITE +"  " + players.get(j).getName()+ TextColours.RESET);
                 }
                 else{
                     System.out.print(" " + players.get(j).getName());
@@ -56,13 +57,13 @@ public class Prison extends IdentifiedCard {
             System.out.print("\n");
             players.get(actualPlayer).printLine(players.get(actualPlayer));
 
-            choosedPlayer = ZKlavesnice.readInt(TextColours.ANSI_CYAN + "Choose player from (1," + players.size() + ")." + TextColours.ANSI_RESET);
+            choosedPlayer = ZKlavesnice.readInt(TextColours.CYAN + "Choose player from (1," + players.size() + ")." + TextColours.RESET);
 
         }while(!players.get(actualPlayer).checkInputRange(1, players.size(), choosedPlayer,actualPlayer,false));
 
 
         players.get(actualPlayer).addBlueCardInPlayerDeck2(players.get(actualPlayer),players.get(choosedPlayer-1),players.get(actualPlayer).getCardInHand(choosedCard-1));
-        System.out.println(TextColours.ANSI_RED + "Player " + TextColours.ANSI_RESET +players.get(actualPlayer).getName() + TextColours.ANSI_RED +" put Player " + TextColours.ANSI_RESET + players.get(choosedPlayer-1).getName() + TextColours.ANSI_RED + " in Prison." + TextColours.ANSI_RESET );
+        System.out.println(TextColours.RED + "Player " + TextColours.RESET +players.get(actualPlayer).getName() + TextColours.RED +" put Player " + TextColours.RESET + players.get(choosedPlayer-1).getName() + TextColours.RED + " in Prison." + TextColours.RESET );
 
         return false;
 

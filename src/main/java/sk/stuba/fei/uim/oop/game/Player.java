@@ -9,15 +9,15 @@ public class Player {
 
     private final String name;
     private int livesNumber;
-    private ArrayList<IdentifiedCard> blueCardsInPlayerDeck;
-    private ArrayList<IdentifiedCard> cardsInHand;
+    private final ArrayList<IdentifiedCard> blueCardsInPlayerDeck;
+    private final ArrayList<IdentifiedCard> cardsInHand;
 
 
 
     public Player(String name) {
 
         this.name = name;
-        this.livesNumber = 4;
+        this.livesNumber = 1;
         this.blueCardsInPlayerDeck = new ArrayList<>();
         this.cardsInHand = new ArrayList<>();
 
@@ -74,11 +74,11 @@ public class Player {
     }
     public void printPlayerPackage(Player player){
 
-        System.out.println( TextColours.ANSI_CYAN + "----------------------It is "+ TextColours.ANSI_RESET + getName() + TextColours.ANSI_CYAN + " turn.---------------------- " + TextColours.ANSI_RESET);
+        System.out.println( TextColours.CYAN + "----------------------It is "+ TextColours.RESET + getName() + TextColours.CYAN + " turn.---------------------- " + TextColours.RESET);
         for (int i = 0; i< getName().length()/2;i++){
             System.out.print(" ");
         }
-        System.out.println(TextColours.ANSI_CYAN + "                    You have "+ TextColours.ANSI_RED + getLivesNumber() + TextColours.ANSI_CYAN + " lives. " + TextColours.ANSI_RESET);
+        System.out.println(TextColours.CYAN + "                    You have "+ TextColours.RED + getLivesNumber() + TextColours.CYAN + " lives. " + TextColours.RESET);
 
 
         //Cards in front of Player on Deck
@@ -92,12 +92,12 @@ public class Player {
         System.out.println("     Cards in front of Player on Deck");
 
         if(player.blueCardsInPlayerDeck.size() == 0) {
-            System.out.println(TextColours.ANSI_WHITE + "     (Empty jet) " + TextColours.ANSI_RESET);
+            System.out.println(TextColours.WHITE + "     (Empty jet) " + TextColours.RESET);
         }else {
             System.out.print("  ");
             for (int i = 0; i < player.blueCardsInPlayerDeck.size(); i++) {
 
-                System.out.print(TextColours.ANSI_BLUE + "   " + player.getCardInPlayerDeck(i).getCardName() + TextColours.ANSI_RESET);
+                System.out.print(TextColours.BLUE + "   " + player.getCardInPlayerDeck(i).getCardName() + TextColours.RESET);
 
             }
             System.out.print("\n");
@@ -107,15 +107,15 @@ public class Player {
 
             System.out.println("     Cards in Player hands ");
             if(player.getCardsInHandCount() == 0) {
-                System.out.println(TextColours.ANSI_WHITE + "     (Empty jet) " + TextColours.ANSI_RESET);
+                System.out.println(TextColours.WHITE + "     (Empty jet) " + TextColours.RESET);
             }else {
                 System.out.print("  ");
                 for (int i = 0; i < player.cardsInHand.size(); i++) {
 
                     if (!player.getCardInHand(i).getCardColour()) {
-                        System.out.print(TextColours.ANSI_YELLOW + "   " + player.getCardInHand(i).getCardName() + TextColours.ANSI_RESET);
+                        System.out.print(TextColours.YELLOW + "   " + player.getCardInHand(i).getCardName() + TextColours.RESET);
                     } else
-                        System.out.print(TextColours.ANSI_BLUE + "   " + player.getCardInHand(i).getCardName() + TextColours.ANSI_RESET);
+                        System.out.print(TextColours.BLUE + "   " + player.getCardInHand(i).getCardName() + TextColours.RESET);
 
                 }
                 System.out.print("\n");
@@ -126,9 +126,9 @@ public class Player {
     }
 
     public void printLine(Player player){
-        System.out.print(TextColours.ANSI_CYAN + "--------------------------------------------------------" + TextColours.ANSI_RESET);
+        System.out.print(TextColours.CYAN + "--------------------------------------------------------" + TextColours.RESET);
         for (int j = 0; j< player.getName().length();j++){
-            System.out.print(TextColours.ANSI_CYAN + "-" + TextColours.ANSI_RESET);
+            System.out.print(TextColours.CYAN + "-" + TextColours.RESET);
         }
         System.out.print("\n");
     }
@@ -152,7 +152,7 @@ public class Player {
         if (number >= rangeStart && number <= rangeEnd && playerNumber != number-1) {
             return true;
         }
-        System.out.println(TextColours.ANSI_RED + "             Wrong input" + TextColours.ANSI_RESET);
+        System.out.println(TextColours.RED + "             Wrong input" + TextColours.RESET);
         return false;
     }
 

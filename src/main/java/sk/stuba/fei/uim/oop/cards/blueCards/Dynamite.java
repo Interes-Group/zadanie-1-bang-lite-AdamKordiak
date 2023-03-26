@@ -28,7 +28,7 @@ public class Dynamite extends IdentifiedCard {
                 System.out.println(",," + x + ",,");
 
                 System.out.println(playDeck.getCardsCount());
-                System.out.print(TextColours.ANSI_CYAN + "Dynamit don't explode to " +TextColours.ANSI_RESET + players.get(i).getName() +TextColours.ANSI_CYAN + ". Player "+TextColours.ANSI_RESET);
+                System.out.print(TextColours.CYAN + "Dynamit don't explode to " +TextColours.RESET + players.get(i).getName() +TextColours.CYAN + ". Player "+TextColours.RESET);
 
                 if (x == 1) {
                     players.get(actualPlayer).minusLive();
@@ -38,10 +38,10 @@ public class Dynamite extends IdentifiedCard {
                     players.get(actualPlayer).removeBlueCardInPlayerDeck(playDeck, players.get(actualPlayer).getCardInPlayerDeck(i));
                     System.out.println(playDeck.getCardsCount());
                     if(players.get(i).getLivesNumber() > 0) {
-                        System.out.println(TextColours.ANSI_RED + "Dynamit explode to " + players.get(i).getName() + ". He have now" + players.get(i).getLivesNumber() + " lives. " + TextColours.ANSI_RESET);
+                        System.out.println(TextColours.RED + "Dynamit explode to " + players.get(i).getName() + ". He have now" + players.get(i).getLivesNumber() + " lives. " + TextColours.RESET);
                     }else {
-                        System.out.println(TextColours.ANSI_RED + "                  Dynamit explode to " + players.get(i).getName() + ". " + TextColours.ANSI_RESET);
-                        System.out.print(TextColours.ANSI_RED + "                    Player " + players.get(i).getName() + " is dead. \n" + TextColours.ANSI_RESET);
+                        System.out.println(TextColours.RED + "                  Dynamit explode to " + players.get(i).getName() + ". " + TextColours.RESET);
+                        System.out.print(TextColours.RED + "                    Player " + players.get(i).getName() + " is dead. \n" + TextColours.RESET);
 
                     }
                     return true;
@@ -51,14 +51,14 @@ public class Dynamite extends IdentifiedCard {
                         players.get(actualPlayer).removeDynamitToBefourPlayer(players.get(actualPlayer), players.get(actualPlayer).getCardInPlayerDeck(i));
                         actualPlayer = players.size() - 1;
                         players.get(actualPlayer).addDynamitToBefourPlayer(players.get(actualPlayer));
-                        System.out.print(players.get(actualPlayer).getName() +TextColours.ANSI_CYAN + " have now "+TextColours.ANSI_BLUE +"Dynamite. \n"+TextColours.ANSI_RESET);
+                        System.out.print(players.get(actualPlayer).getName() +TextColours.CYAN + " have now "+TextColours.BLUE +"Dynamite. \n"+TextColours.RESET);
                         System.out.println(playDeck.getCardsCount());
                         return false;
 
 
                     } else {
                         players.get(actualPlayer).addDynamitToBefourPlayer(players.get(actualPlayer - 1));
-                        System.out.print(players.get(actualPlayer - 1 ).getName() +TextColours.ANSI_CYAN + " have now "+TextColours.ANSI_BLUE +"Dynamite \n"+TextColours.ANSI_RESET);
+                        System.out.print(players.get(actualPlayer - 1 ).getName() +TextColours.CYAN + " have now "+TextColours.BLUE +"Dynamite \n"+TextColours.RESET);
 
                         players.get(actualPlayer).removeDynamitToBefourPlayer(players.get(actualPlayer), players.get(actualPlayer).getCardInPlayerDeck(i));
                         System.out.println(playDeck.getCardsCount());
