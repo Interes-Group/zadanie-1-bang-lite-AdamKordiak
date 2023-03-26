@@ -22,7 +22,7 @@ public void fillDeck() {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < countsCards[i];j++ ) {
             switch (i) {
-                case 0: cardsInDeck.add(new Bang()); break;
+                case 0: cardsInDeck.add(new Barrel()); break;
                 case 1: cardsInDeck.add(new Dynamite());break;
                 case 2: cardsInDeck.add(new Prison()); break;
                 case 3: cardsInDeck.add(new Bang()); break;
