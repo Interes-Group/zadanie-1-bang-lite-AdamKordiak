@@ -31,7 +31,7 @@ public class CatBalou extends IdentifiedCard {
                     System.out.print(TextColours.WHITE +"  " + players.get(j).getName()+ TextColours.RESET);
                 }
                 else{
-                    System.out.print(" " + players.get(j).getName());
+                    System.out.print("  " + players.get(j).getName());
                 }
             }
             System.out.print("\n");

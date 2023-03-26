@@ -2,6 +2,7 @@ package sk.stuba.fei.uim.oop.game;
 
 import sk.stuba.fei.uim.oop.utility.ZKlavesnice;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Game {
@@ -28,10 +29,10 @@ public class Game {
 
     }
     private void startGame() {
+        Random random = new Random();
 
         playDeck = new PlayDeck();
         playDeck.fillDeck();
-
         for (Player player : players) {
             for (int j = 0; j < player.getLivesNumber(); j++) {
                 player.addCardInHand(playDeck);
@@ -41,24 +42,27 @@ public class Game {
         while(true){
             if(players.size() == 1){
                 players.get(0).returnPlayerCards(playDeck, players.get(0));
-              //  System.out.println(playDeck.getCardsCount());
-                System.out.println(TextColours.GREEN +"\n\n                  Player "+players.get(0).getName()+ " is a winner." + TextColours.RESET);
+                System.out.println(TextColours.GREEN +"\n\n                 Player "+players.get(0).getName()+ " is a winner." + TextColours.RESET);
                 break;
             }
 
             for (int i = 0; i < players.size();i++) {
                 boolean prisonStatement = false;
+
                 for(int j = 0;j < players.get(i).getCardsPlayerDeckCount();j++) {
 
                     if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 1) {
-                        players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i,j);
+                        players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i, j);
                     }
-                    if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 2) {
-                        if(players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i,j)){
-                            prisonStatement = true;
+                }
+                if(players.get(i).getLivesNumber() > 0) {
+                    for (int j = 0; j < players.get(i).getCardsPlayerDeckCount(); j++) {
+                        if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 2) {
+                            if (players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i, j)) {
+                                prisonStatement = true;
+                            }
                         }
                     }
-
                 }
                 for(int k = 0; k < 4;k++){ //This "for" is for most acurate info about dead players
                     for(int j = 0; j < players.size();j++) {
@@ -74,6 +78,9 @@ public class Game {
                 }
                 if(prisonStatement){
                     continue;
+                }
+                if(players.size() == 1){
+                    break;
                 }
 
                 players.get(i).addCardInHand(playDeck);
@@ -139,7 +146,7 @@ public class Game {
                 return false;
             }
 
-            System.out.println(TextColours.RED + "           You have more cards than lives." + TextColours.RESET);
+            System.out.println(TextColours.RED + "             You have more cards than lives." + TextColours.RESET);
             players.get(i).printLine(players.get(i));
 
             players.get(i).cardsInPlayerHands(players.get(i));

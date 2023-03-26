@@ -27,8 +27,6 @@ public class Prison extends IdentifiedCard {
             if (players.get(actualPlayer).getCardInPlayerDeck(i).getCardCode() == 2) {
                 int x = random.nextInt(4);
 
-                System.out.println(",," + x + ",,");
-
                 players.get(actualPlayer).removeBlueCardInPlayerDeck(playDeck,players.get(actualPlayer).getCardInPlayerDeck(i));
 
                 if (x == 1) {
@@ -51,7 +49,7 @@ public class Prison extends IdentifiedCard {
                     System.out.print(TextColours.WHITE +"  " + players.get(j).getName()+ TextColours.RESET);
                 }
                 else{
-                    System.out.print(" " + players.get(j).getName());
+                    System.out.print("  " + players.get(j).getName());
                 }
             }
             System.out.print("\n");

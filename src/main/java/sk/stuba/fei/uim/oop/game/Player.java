@@ -17,7 +17,7 @@ public class Player {
     public Player(String name) {
 
         this.name = name;
-        this.livesNumber = 1;
+        this.livesNumber = 4;
         this.blueCardsInPlayerDeck = new ArrayList<>();
         this.cardsInHand = new ArrayList<>();
 
