@@ -53,17 +53,18 @@ public class Game {
             }
 
             for (int i = 0; i < players.size();i++) {
-
-
-                getPlayer(i).addCardInHand(playDeck);
-                getPlayer(i).addCardInHand(playDeck);
-
+                boolean prisonStatement = false;
                 for(int j = 0;j < players.get(i).getCardsPlayerDeckCount();j++) {
 
                     if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 1) {
                         players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i,j);
-                        break;
                     }
+                    if (players.get(i).getCardInPlayerDeck(j).getCardCode() == 2) {
+                        if(players.get(i).getCardInPlayerDeck(j).useCard(playDeck, players, i,j)){
+                            prisonStatement = true;
+                        }
+                    }
+
                 }
                 for(int k = 0; k < 4;k++){ //This "for" is for most acurate info about dead players
                     for(int j = 0; j < players.size();j++) {
@@ -77,7 +78,12 @@ public class Game {
                         }
                     }
                 }
+                if(prisonStatement){
+                    continue;
+                }
 
+                getPlayer(i).addCardInHand(playDeck);
+                getPlayer(i).addCardInHand(playDeck);
 
 
                 while (true) {
@@ -130,16 +136,8 @@ public class Game {
 
 
     }
-    public int getNumberOfPlayers(){return players.size();}
-    public Player getPlayer(int i){return players.get(i);}
 
-    private void printPlayersHealth() {
-        System.out.println("\n\n-----------------------------Health");
-        for (int i = 0; i < numberOfPlayers; i++) {
-            System.out.println(TextColours.ANSI_RED + getPlayer(i).getName() + TextColours.ANSI_RESET + " have " + TextColours.ANSI_RED + players.get(i).getLivesNumber() + TextColours.ANSI_RESET + " lives.");
-        }
-        System.out.println("-----------------------------Health\n");
-    }
+    public Player getPlayer(int i){return players.get(i);}
 
     private boolean removeCardFromHand(int i){
 
@@ -151,11 +149,12 @@ public class Game {
                     return false;
                 }
                 System.out.print("\n");
+
+                System.out.println(TextColours.ANSI_RED + "           You have more cards than lives." + TextColours.ANSI_RESET);
                 players.get(i).printLine(players.get(i));
 
                 players.get(i).cardsInPlayerHands(players.get(i));
 
-                System.out.println(TextColours.ANSI_RED + "           You have more cards than lives." + TextColours.ANSI_RESET);
                 choosedDeletedCard = ZKlavesnice.readInt(TextColours.ANSI_CYAN + "Whitch card do you want to remove ? Write from (1," + players.get(i).getCardsInHandCount() + ")." + TextColours.ANSI_RESET);
 
             }while(!players.get(i).checkInputRange(1, players.get(i).getCardsInHandCount(), choosedDeletedCard,100, false));

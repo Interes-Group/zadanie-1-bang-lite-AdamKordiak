@@ -16,7 +16,7 @@ public class PlayDeck extends IdentifiedCard {
     public PlayDeck() {
         this.cardsInDeck = new ArrayList<>();
         this.deckSize = 71;
-        this.countsCards = new int[] {30,60,3,30, 15, 8, 6, 4, 2};
+        this.countsCards = new int[] {2,1,30,30, 15, 8, 6, 4, 2};
         //                 original  {2,1,3,30, 15, 8, 6 , 4, 2};
 
     }

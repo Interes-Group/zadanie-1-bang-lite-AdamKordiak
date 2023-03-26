@@ -10,9 +10,6 @@ import java.util.Random;
 
 public class Dynamite extends IdentifiedCard {
 
-    private Player[] players;
-    private int playerNumber;
-
     public Dynamite() {
         super.cardName = "Dynamit";
         super.cardColour = true; // blue colour
@@ -28,8 +25,8 @@ public class Dynamite extends IdentifiedCard {
         for(int i = 0;i < players.get(actualPlayer).getCardsPlayerDeckCount();i++) {
             if (players.get(actualPlayer).getCardInPlayerDeck(i).getCardCode() == 1) {
                 int x = random.nextInt(8);
-                x = 1;
                 System.out.println(",," + x + ",,");
+
                 System.out.println(playDeck.getCardsCount());
                 System.out.print(TextColours.ANSI_CYAN + "Dynamit don't explode to " +TextColours.ANSI_RESET + players.get(i).getName() +TextColours.ANSI_CYAN + ". Player "+TextColours.ANSI_RESET);
 

@@ -17,7 +17,7 @@ public class Player {
     public Player(String name) {
 
         this.name = name;
-        this.livesNumber = 1;
+        this.livesNumber = 4;
         this.blueCardsInPlayerDeck = new ArrayList<>();
         this.cardsInHand = new ArrayList<>();
 
@@ -53,11 +53,16 @@ public class Player {
     public void addBlueCardInPlayerDeck(Player player1,IdentifiedCard card){
         player1.blueCardsInPlayerDeck.add(card);
         player1.cardsInHand.remove(card);
+    }
+    public void addBlueCardInPlayerDeck2(Player player1,Player player2,IdentifiedCard card){
+        player2.blueCardsInPlayerDeck.add(card);
+        player1.cardsInHand.remove(card);
 
     }
     public void addDynamitToBefourPlayer( Player player1){
         player1.blueCardsInPlayerDeck.add(new Dynamite());
     }
+
     public void removeDynamitToBefourPlayer( Player player1,IdentifiedCard card){
         player1.blueCardsInPlayerDeck.remove(card);
 

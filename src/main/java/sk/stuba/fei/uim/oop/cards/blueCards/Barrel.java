@@ -10,16 +10,10 @@ import java.util.ArrayList;
 
 public class Barrel extends IdentifiedCard {
 
-    private Player[] players;
-    private int playerNumber;
-    private boolean cardColour;
-
     public Barrel() {
         super.cardName = "Barrel";
         super.cardColour = true; // blue colour
         super.cardCode = 0;
-
-
 
     }
 
